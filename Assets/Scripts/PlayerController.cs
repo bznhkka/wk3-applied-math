@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         //Destroy(player);
     }
 
-    public void youWin()
+    public void YouWin()
     {
         Debug.Log("player has completed the trials");
 
