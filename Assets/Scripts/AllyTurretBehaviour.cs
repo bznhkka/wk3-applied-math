@@ -13,6 +13,15 @@ public class AllyTurretBehaviour : MonoBehaviour
 
     void Start()
     {
+        if (protectionPoint == null)
+        {
+            ProtectPoint protectPoint = FindFirstObjectByType<ProtectPoint>();
+            if (protectPoint != null)
+            {
+                protectionPoint = protectPoint.transform;
+            }
+        }
+
         Debug.Assert(protectionPoint != null);
         Debug.Assert(bulletPrefab != null);
     }

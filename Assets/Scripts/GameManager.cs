@@ -3,27 +3,50 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    static private bool youWon = false;
-    [SerializeField] public GameObject player;
+    public static GameManager Instance { get; private set; }
 
-    static public void setGameWin()
+    [SerializeField][Min(0)] int startingHP = 20;
+
+    private int currentHP;
+
+    void Awake()
     {
-        //youWon = true;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        currentHP = startingHP;
     }
 
-    static public void restartGame()
+    void OnDestroy()
     {
-        SceneManager.LoadScene(0);
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public int CurrentHP => currentHP;
 
+    public void DecrementHP(int dec)
+    {
+        currentHP -= dec;
+        if (currentHP <= 0)
+        {
+            restartGame();
+        }
+    }
+
+    public static void restartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(16, 16, 240, 32), $"Base HP: {currentHP}");
     }
 }

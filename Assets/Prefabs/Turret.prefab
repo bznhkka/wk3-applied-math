@@ -157,14 +157,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5097650260868016317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4062b2ec55da87242a4c0c4b045859e6, type: 3}
+  m_Script: {fileID: 11500000, guid: b24e1108b1a2daaecab307cb01a1e2dc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  player: {fileID: 0}
-  maxDetectionDistance: 5
+  m_EditorClassIdentifier: Assembly-CSharp::AllyTurretBehaviour
+  protectionPoint: {fileID: 0}
+  maxDetectionDistance: 18
   angleOfDetection: 180
   bulletPrefab: {fileID: 6862428985259046643, guid: 4f6102cd86e101bfab8d22cbba658a33, type: 3}
-  firingInterval: 1
+  firingInterval: 0.75
 --- !u!1 &7843508281049683119
 GameObject:
   m_ObjectHideFlags: 0
